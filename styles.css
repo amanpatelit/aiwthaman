@@ -1056,3 +1056,14 @@ footer::before {
     color: var(--text-light);
     font-weight: 500;
 }
+
+
+/* AWS Badge Styling */
+.hero-badge .fa-aws {
+    color: #FF9900;
+}
+
+.highlight-item .fa-aws {
+    color: #FF9900;
+    font-size: 1.8rem;
+}
