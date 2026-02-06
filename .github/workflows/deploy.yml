@@ -30,11 +30,16 @@ jobs:
             --delete
 
       - name: Invalidate CloudFront cache (optional)
-        if: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID != '' }}
+        continue-on-error: true
         run: |
-          aws cloudfront create-invalidation \
-            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --paths "/*"
+          if [ ! -z "${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}" ]; then
+            aws cloudfront create-invalidation \
+              --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+              --paths "/*"
+            echo "CloudFront cache invalidated"
+          else
+            echo "CloudFront distribution ID not set, skipping cache invalidation"
+          fi
 
       - name: Deployment complete
         run: echo "Website deployed successfully to S3!"
