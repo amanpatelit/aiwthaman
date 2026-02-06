@@ -746,6 +746,10 @@ section {
     animation-delay: 0.4s;
 }
 
+.contact-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
 .contact-item:hover {
     transform: translateX(8px);
     border-color: rgba(0, 204, 153, 0.3);
