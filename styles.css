@@ -350,10 +350,35 @@ body {
     align-items: center;
     gap: 0.5rem;
     font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::after {
+    width: 300px;
+    height: 300px;
 }
 
 .btn i {
     font-size: 1.1rem;
+    transition: transform 0.3s;
+}
+
+.btn:hover i {
+    transform: translateX(3px);
 }
 
 .btn-primary {
@@ -429,6 +454,7 @@ section {
     position: relative;
     display: inline-block;
     width: 100%;
+    animation: fadeInUp 0.8s ease-out;
 }
 
 .section-title::after {
@@ -441,6 +467,16 @@ section {
     height: 4px;
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     border-radius: 2px;
+    animation: expandWidth 1s ease-out 0.3s backwards;
+}
+
+@keyframes expandWidth {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100px;
+    }
 }
 
 .about {
@@ -691,6 +727,23 @@ section {
     border-radius: 10px;
     transition: all 0.3s;
     border: 1px solid var(--border-color);
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.contact-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.contact-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.contact-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.contact-item:nth-child(4) {
+    animation-delay: 0.4s;
 }
 
 .contact-item:hover {
@@ -890,16 +943,69 @@ footer::before {
     padding: 0.7rem 1.8rem;
     border-radius: 50px;
     margin-bottom: 2rem;
-    animation: fadeInUp 1s ease-out 0.1s both;
+    animation: fadeInDown 1s ease-out 0.1s both, badgePulse 3s ease-in-out infinite;
     font-size: 0.9rem;
     color: var(--secondary-color);
     font-weight: 500;
     letter-spacing: 0.3px;
     backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 204, 153, 0.2), transparent);
+    animation: badgeShimmer 3s infinite;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes badgePulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(0, 204, 153, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 20px 5px rgba(0, 204, 153, 0.2);
+    }
+}
+
+@keyframes badgeShimmer {
+    0% {
+        left: -100%;
+    }
+    50%, 100% {
+        left: 100%;
+    }
 }
 
 .hero-badge i {
-    animation: pulse 2s ease-in-out infinite;
+    animation: iconFloat 2s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
 }
 
 /* Hero Stats */
@@ -936,6 +1042,18 @@ footer::before {
     color: var(--text-light);
     line-height: 1.2;
     margin-bottom: 0.5rem;
+    animation: countUp 1.5s ease-out;
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .stat-label {
@@ -1046,7 +1164,15 @@ footer::before {
     border-radius: 8px;
     border: 1px solid rgba(0, 204, 153, 0.2);
     transition: all 0.3s;
+    animation: fadeInUp 0.6s ease-out backwards;
 }
+
+.highlight-item:nth-child(1) { animation-delay: 0.1s; }
+.highlight-item:nth-child(2) { animation-delay: 0.2s; }
+.highlight-item:nth-child(3) { animation-delay: 0.3s; }
+.highlight-item:nth-child(4) { animation-delay: 0.4s; }
+.highlight-item:nth-child(5) { animation-delay: 0.5s; }
+.highlight-item:nth-child(6) { animation-delay: 0.6s; }
 
 .highlight-item:hover {
     transform: translateX(10px);
@@ -1058,6 +1184,11 @@ footer::before {
     color: var(--secondary-color);
     font-size: 1.5rem;
     flex-shrink: 0;
+    transition: transform 0.3s;
+}
+
+.highlight-item:hover i {
+    transform: scale(1.2) rotate(5deg);
 }
 
 .highlight-item span {
@@ -1069,6 +1200,16 @@ footer::before {
 /* AWS Badge Styling */
 .hero-badge .fa-aws {
     color: #FF9900;
+    animation: iconFloat 2s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
 }
 
 .highlight-item .fa-aws {
