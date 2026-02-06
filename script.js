@@ -27,13 +27,7 @@ hamburger.addEventListener('click', () => {
     navLinks.style.borderRadius = '5px';
 });
 
-// Form submission handler
-const contactForm = document.querySelector('.contact-form');
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Thank you for your message! I will get back to you soon.');
-    contactForm.reset();
-});
+// Form submission handler (removed - no form present)
 
 // Navbar background on scroll
 window.addEventListener('scroll', () => {

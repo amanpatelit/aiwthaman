@@ -1075,3 +1075,16 @@ footer::before {
     color: #FF9900;
     font-size: 1.8rem;
 }
+
+
+/* Centered Contact Section */
+.contact-content-center {
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-content-center .contact-info {
+    width: 100%;
+}
