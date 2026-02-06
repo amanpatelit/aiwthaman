@@ -302,6 +302,16 @@ section {
     color: var(--secondary-color);
 }
 
+.contact-item a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-item a:hover {
+    color: var(--secondary-color);
+}
+
 footer {
     background-color: var(--dark-bg);
     text-align: center;
