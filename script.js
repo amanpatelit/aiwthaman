@@ -185,3 +185,112 @@ document.addEventListener('mousemove', (e) => {
     
     hero.style.backgroundPosition = `${50 + moveX}% ${50 + moveY}%`;
 });
+
+
+// Disable right-click
+document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    return false;
+});
+
+// Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+document.addEventListener('keydown', (e) => {
+    // F12
+    if (e.key === 'F12') {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Ctrl+Shift+I (Inspect)
+    if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Ctrl+Shift+J (Console)
+    if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Ctrl+Shift+C (Inspect Element)
+    if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Ctrl+U (View Source)
+    if (e.ctrlKey && e.key === 'u') {
+        e.preventDefault();
+        return false;
+    }
+    
+    // Ctrl+S (Save)
+    if (e.ctrlKey && e.key === 's') {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// Disable developer tools detection
+(function() {
+    const devtools = /./;
+    devtools.toString = function() {
+        this.opened = true;
+    };
+    
+    const checkDevTools = setInterval(() => {
+        if (devtools.opened) {
+            window.location.reload();
+        }
+    }, 1000);
+})();
+
+// Disable text selection
+document.addEventListener('selectstart', (e) => {
+    e.preventDefault();
+    return false;
+});
+
+// Disable copy
+document.addEventListener('copy', (e) => {
+    e.preventDefault();
+    return false;
+});
+
+// Disable cut
+document.addEventListener('cut', (e) => {
+    e.preventDefault();
+    return false;
+});
+
+// Disable drag
+document.addEventListener('dragstart', (e) => {
+    e.preventDefault();
+    return false;
+});
+
+// Clear console periodically
+setInterval(() => {
+    console.clear();
+}, 1000);
+
+// Detect if DevTools is open by checking window size
+(function() {
+    const threshold = 160;
+    const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+    const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+    
+    if (widthThreshold || heightThreshold) {
+        document.body.innerHTML = '<h1 style="text-align:center; margin-top:50px;">Developer tools are not allowed!</h1>';
+    }
+    
+    window.addEventListener('resize', () => {
+        const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+        const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+        
+        if (widthThreshold || heightThreshold) {
+            document.body.innerHTML = '<h1 style="text-align:center; margin-top:50px;">Developer tools are not allowed!</h1>';
+        }
+    });
+})();
