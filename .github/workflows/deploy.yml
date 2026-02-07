@@ -17,20 +17,23 @@ jobs:
       - name: Send Slack notification - Deployment started
         if: always()
         run: |
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          COMMIT_SHA="${{ github.sha }}"
+          SHORT_SHA="${COMMIT_SHA:0:7}"
           curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
           -H 'Content-Type: application/json' \
-          -d '{
-            "text": " *Deployment Started*",
-            "blocks": [
+          -d "{
+            \"text\": \"🚀 *Deployment Started*\",
+            \"blocks\": [
               {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": " *Deployment Started*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Triggered by:* ${{ github.actor }}\n*Commit:* `${{ github.event.head_commit.message }}`"
+                \"type\": \"section\",
+                \"text\": {
+                  \"type\": \"mrkdwn\",
+                  \"text\": \"🚀 *Deployment Started*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Triggered by:* ${{ github.actor }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\"
                 }
               }
             ]
-          }'
+          }"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -65,35 +68,41 @@ jobs:
       - name: Send Slack notification - Deployment success
         if: success()
         run: |
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          COMMIT_SHA="${{ github.sha }}"
+          SHORT_SHA="${COMMIT_SHA:0:7}"
           curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
           -H 'Content-Type: application/json' \
-          -d '{
-            "text": "*Deployment Successful*",
-            "blocks": [
+          -d "{
+            \"text\": \"✅ *Deployment Successful*\",
+            \"blocks\": [
               {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": "*Deployment Successful*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Commit:* `${{ github.event.head_commit.message }}`\n*Status:* Success 🎉\n\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Workflow>"
+                \"type\": \"section\",
+                \"text\": {
+                  \"type\": \"mrkdwn\",
+                  \"text\": \"✅ *Deployment Successful*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\n*Status:* Success 🎉\n\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Workflow>\"
                 }
               }
             ]
-          }'
+          }"
 
       - name: Send Slack notification - Deployment failed
         if: failure()
         run: |
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          COMMIT_SHA="${{ github.sha }}"
+          SHORT_SHA="${COMMIT_SHA:0:7}"
           curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
           -H 'Content-Type: application/json' \
-          -d '{
-            "text": " *Deployment Failed*",
-            "blocks": [
+          -d "{
+            \"text\": \"❌ *Deployment Failed*\",
+            \"blocks\": [
               {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": " *Deployment Failed*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Commit:* `${{ github.event.head_commit.message }}`\n*Triggered by:* ${{ github.actor }}\n\n⚠️ Please check the logs\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Logs>"
+                \"type\": \"section\",
+                \"text\": {
+                  \"type\": \"mrkdwn\",
+                  \"text\": \"❌ *Deployment Failed*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\n*Triggered by:* ${{ github.actor }}\n\n⚠️ Please check the logs\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Logs>\"
                 }
               }
             ]
-          }'
+          }"
