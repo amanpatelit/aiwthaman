@@ -19,13 +19,13 @@ jobs:
         with:
           payload: |
             {
-              "text": "🚀 Deployment Started",
+              "text": " Deployment Started",
               "blocks": [
                 {
                   "type": "header",
                   "text": {
                     "type": "plain_text",
-                    "text": "🚀 Deployment Started"
+                    "text": " Deployment Started"
                   }
                 },
                 {
@@ -90,13 +90,13 @@ jobs:
         with:
           payload: |
             {
-              "text": "✅ Deployment Successful",
+              "text": " Deployment Successful",
               "blocks": [
                 {
                   "type": "header",
                   "text": {
                     "type": "plain_text",
-                    "text": "✅ Deployment Successful"
+                    "text": " Deployment Successful"
                   }
                 },
                 {
@@ -112,7 +112,7 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Status:*\n✅ Success"
+                      "text": "*Status:*\n Success"
                     },
                     {
                       "type": "mrkdwn",
@@ -124,7 +124,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Website deployed successfully to S3! 🎉"
+                    "text": "Website deployed successfully to S3! "
                   }
                 },
                 {
@@ -151,13 +151,13 @@ jobs:
         with:
           payload: |
             {
-              "text": "❌ Deployment Failed",
+              "text": "Deployment Failed",
               "blocks": [
                 {
                   "type": "header",
                   "text": {
                     "type": "plain_text",
-                    "text": "❌ Deployment Failed"
+                    "text": " Deployment Failed"
                   }
                 },
                 {
@@ -173,7 +173,7 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Status:*\n❌ Failed"
+                      "text": "*Status:*\ Failed"
                     },
                     {
                       "type": "mrkdwn",
