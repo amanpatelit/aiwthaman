@@ -1342,3 +1342,22 @@ footer::before {
 .contact-item .fa-calendar-check {
     color: #00ff99;
 }
+
+
+/* AI/Robot Icon Colors */
+.skill-card .fa-robot,
+.skill-card .fa-brain {
+    color: #0066ff !important;
+}
+
+.project-card .fa-robot,
+.project-card .fa-brain {
+    color: #0066ff !important;
+    filter: drop-shadow(0 0 10px rgba(0, 102, 255, 0.5)) !important;
+}
+
+.project-card:hover .fa-robot,
+.project-card:hover .fa-brain {
+    color: #00a8ff !important;
+    filter: drop-shadow(0 0 20px rgba(0, 168, 255, 0.7)) !important;
+}
