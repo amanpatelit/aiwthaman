@@ -764,7 +764,6 @@ section {
 
 .contact-item:hover i {
     transform: scale(1.2) rotate(10deg);
-    filter: drop-shadow(0 0 10px var(--glow-color));
 }
 
 .contact-item a {
@@ -1232,4 +1231,114 @@ footer::before {
 
 .contact-content-center .contact-info {
     width: 100%;
+}
+
+
+/* Technology Brand Colors */
+.skill-card .fa-aws {
+    color: #FF9900 !important;
+}
+
+.skill-card .fa-docker {
+    color: #2496ED !important;
+}
+
+.skill-card .fa-code-branch {
+    color: #00ff99;
+}
+
+.skill-card .fa-cogs {
+    color: #844FBA !important;
+}
+
+.skill-card .fa-chart-line {
+    color: #F46800 !important;
+}
+
+.skill-card .fa-python {
+    color: #3776AB !important;
+}
+
+/* Project Icon Brand Colors */
+.project-card .fa-aws {
+    color: #FF9900 !important;
+    filter: drop-shadow(0 0 10px rgba(255, 153, 0, 0.5)) !important;
+}
+
+.project-card:hover .fa-aws {
+    color: #FF9900 !important;
+    filter: drop-shadow(0 0 20px rgba(255, 153, 0, 0.7)) !important;
+}
+
+.project-card .fa-docker {
+    color: #2496ED !important;
+    filter: drop-shadow(0 0 10px rgba(36, 150, 237, 0.5)) !important;
+}
+
+.project-card:hover .fa-docker {
+    color: #2496ED !important;
+    filter: drop-shadow(0 0 20px rgba(36, 150, 237, 0.7)) !important;
+}
+
+.project-card .fa-server {
+    color: #00ff99;
+}
+
+.project-card .fa-exclamation-triangle {
+    color: #FFA500 !important;
+    filter: drop-shadow(0 0 10px rgba(255, 165, 0, 0.5)) !important;
+}
+
+.project-card:hover .fa-exclamation-triangle {
+    color: #FFA500 !important;
+    filter: drop-shadow(0 0 20px rgba(255, 165, 0, 0.7)) !important;
+}
+
+.project-card .fa-rocket {
+    color: #00ff99;
+}
+
+.project-card .fa-code {
+    color: #00ff99;
+}
+
+.project-card .fa-shield-alt {
+    color: #00D9FF !important;
+    filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5)) !important;
+}
+
+.project-card:hover .fa-shield-alt {
+    color: #00D9FF !important;
+    filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.7)) !important;
+}
+
+.project-card .fa-chart-line {
+    color: #F46800 !important;
+    filter: drop-shadow(0 0 10px rgba(244, 104, 0, 0.5)) !important;
+}
+
+.project-card:hover .fa-chart-line {
+    color: #F46800 !important;
+    filter: drop-shadow(0 0 20px rgba(244, 104, 0, 0.7)) !important;
+}
+
+/* Contact Icons Brand Colors */
+.contact-item .fa-linkedin {
+    color: #0A66C2 !important;
+}
+
+.contact-item .fa-github {
+    color: #ffffff !important;
+}
+
+.contact-item .fa-youtube {
+    color: #FF0000 !important;
+}
+
+.contact-item .fa-envelope {
+    color: #00ff99;
+}
+
+.contact-item .fa-calendar-check {
+    color: #00ff99;
 }
