@@ -23,13 +23,13 @@ jobs:
           curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
           -H 'Content-Type: application/json' \
           -d "{
-            \"text\": \"🚀 *Deployment Started*\",
+            \"text\": \" *Deployment Started*\",
             \"blocks\": [
               {
                 \"type\": \"section\",
                 \"text\": {
                   \"type\": \"mrkdwn\",
-                  \"text\": \"🚀 *Deployment Started*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Triggered by:* ${{ github.actor }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\"
+                  \"text\": \" *Deployment Started*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Triggered by:* ${{ github.actor }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\"
                 }
               }
             ]
@@ -74,13 +74,13 @@ jobs:
           curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
           -H 'Content-Type: application/json' \
           -d "{
-            \"text\": \"✅ *Deployment Successful*\",
+            \"text\": \"*Deployment Successful*\",
             \"blocks\": [
               {
                 \"type\": \"section\",
                 \"text\": {
                   \"type\": \"mrkdwn\",
-                  \"text\": \"✅ *Deployment Successful*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\n*Status:* Success 🎉\n\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Workflow>\"
+                  \"text\": \"*Deployment Successful*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\n*Status:* Success 🎉\n\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Workflow>\"
                 }
               }
             ]
@@ -95,13 +95,13 @@ jobs:
           curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
           -H 'Content-Type: application/json' \
           -d "{
-            \"text\": \"❌ *Deployment Failed*\",
+            \"text\": \"*Deployment Failed*\",
             \"blocks\": [
               {
                 \"type\": \"section\",
                 \"text\": {
                   \"type\": \"mrkdwn\",
-                  \"text\": \"❌ *Deployment Failed*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\n*Triggered by:* ${{ github.actor }}\n\n⚠️ Please check the logs\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Logs>\"
+                  \"text\": \"*Deployment Failed*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\n*Triggered by:* ${{ github.actor }}\n\n⚠️ Please check the logs\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Logs>\"
                 }
               }
             ]
