@@ -1343,22 +1343,6 @@ footer::before {
     color: #00ff99;
 }
 
-/* Disable text selection */
-* {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-touch-callout: none;
-}
-
-/* Allow selection for input fields */
-input, textarea {
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
-=======
 /* AI/Robot Icon Colors */
 .skill-card .fa-robot,
 .skill-card .fa-brain {
