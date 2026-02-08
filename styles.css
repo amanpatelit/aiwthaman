@@ -1359,5 +1359,15 @@ footer::before {
 .project-card:hover .fa-brain {
     color: #00a8ff !important;
     filter: drop-shadow(0 0 20px rgba(0, 168, 255, 0.7)) !important;
+}
 
+/* Users/Scale Icon Colors */
+.project-card .fa-users {
+    color: #43e97b !important;
+    filter: drop-shadow(0 0 10px rgba(67, 233, 123, 0.5)) !important;
+}
+
+.project-card:hover .fa-users {
+    color: #38f9d7 !important;
+    filter: drop-shadow(0 0 20px rgba(56, 249, 215, 0.7)) !important;
 }
