@@ -23,6 +23,7 @@
             justify-content: center;
             overflow: hidden;
             position: relative;
+            color: #1a1a1a;
         }
 
         .animated-bg {
@@ -57,8 +58,12 @@
         .error-container {
             text-align: center;
             padding: 2rem;
-            max-width: 600px;
+            max-width: 650px;
             animation: fadeInUp 1s ease-out;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0, 102, 255, 0.1);
         }
 
         @keyframes fadeInUp {
@@ -95,9 +100,10 @@
 
         .error-icon {
             font-size: 5rem;
-            color: #0066ff;
+            color: #FFA500;
             margin-bottom: 2rem;
             animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 165, 0, 0.3));
         }
 
         @keyframes float {
@@ -119,7 +125,7 @@
         .error-message {
             font-size: 1.2rem;
             color: #5a6c7d;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             line-height: 1.6;
         }
 
@@ -145,12 +151,13 @@
         .btn-primary {
             background: linear-gradient(135deg, #0066ff, #00a8ff);
             color: #ffffff;
-            box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
+            box-shadow: 0 4px 14px rgba(0, 102, 255, 0.25);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 102, 255, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 102, 255, 0.35);
+            background: linear-gradient(135deg, #0052cc, #0066ff);
         }
 
         .btn-secondary {
@@ -163,6 +170,7 @@
             background: #0066ff;
             color: #ffffff;
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
         }
 
         .floating-shapes {
