@@ -1,4 +1,4 @@
-# Aiwthaman - Cloud & DevOps Engineer Portfolio
+# Aiwithaman - Cloud & DevOps Engineer Portfolio
 
 A professional portfolio website showcasing cloud and DevOps engineering skills.
 
@@ -88,4 +88,4 @@ Simply open `index.html` in your browser to view the website locally.
 
 ## License
 
-© 2026 Aiwthaman. All rights reserved.
+© 2026 Aiwithaman. All rights reserved.
