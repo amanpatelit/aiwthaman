@@ -14,16 +14,28 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #0066ff;
+            --secondary-color: #00a8ff;
+            --accent-color: #0052cc;
+            --text-light: #1a1a1a;
+            --text-gray: #5a6c7d;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 50%, #e6f0ff 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 50%, #e6f2ff 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             position: relative;
-            color: #1a1a1a;
+            color: var(--text-light);
         }
 
         .animated-bg {
@@ -41,9 +53,11 @@
             position: absolute;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle at 20% 50%, rgba(0, 102, 255, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(0, 168, 255, 0.08) 0%, transparent 50%);
-            animation: moveBackground 20s ease-in-out infinite;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 102, 255, 0.12) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 168, 255, 0.12) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 60% 60%, rgba(67, 233, 123, 0.08) 0%, transparent 50%);
+            animation: moveBackground 25s ease-in-out infinite;
         }
 
         @keyframes moveBackground {
@@ -53,124 +67,6 @@
             50% {
                 transform: translate(-50px, -50px);
             }
-        }
-
-        .error-container {
-            text-align: center;
-            padding: 2rem;
-            max-width: 650px;
-            animation: fadeInUp 1s ease-out;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 40px rgba(0, 102, 255, 0.1);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .error-code {
-            font-size: 10rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #0066ff, #00a8ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-            margin-bottom: 1rem;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        .error-icon {
-            font-size: 5rem;
-            color: #FFA500;
-            margin-bottom: 2rem;
-            animation: float 3s ease-in-out infinite;
-            filter: drop-shadow(0 0 20px rgba(255, 165, 0, 0.3));
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        .error-title {
-            font-size: 2.5rem;
-            color: #1a1a1a;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .error-message {
-            font-size: 1.2rem;
-            color: #5a6c7d;
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
-        }
-
-        .error-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #0066ff, #00a8ff);
-            color: #ffffff;
-            box-shadow: 0 4px 14px rgba(0, 102, 255, 0.25);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 102, 255, 0.35);
-            background: linear-gradient(135deg, #0052cc, #0066ff);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #0066ff;
-            border: 2px solid #0066ff;
-        }
-
-        .btn-secondary:hover {
-            background: #0066ff;
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
         }
 
         .floating-shapes {
@@ -188,36 +84,39 @@
         }
 
         .shape:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #0066ff, #00a8ff);
+            width: 120px;
+            height: 120px;
+            background: var(--gradient-1);
             border-radius: 50%;
             top: 10%;
             left: 10%;
             animation-delay: 0s;
-            animation-duration: 15s;
+            animation-duration: 20s;
+            filter: blur(40px);
         }
 
         .shape:nth-child(2) {
-            width: 60px;
-            height: 60px;
-            background: #00a8ff;
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-3);
             border-radius: 30%;
             top: 60%;
             left: 80%;
             animation-delay: 2s;
-            animation-duration: 18s;
+            animation-duration: 25s;
+            filter: blur(40px);
         }
 
         .shape:nth-child(3) {
-            width: 100px;
-            height: 100px;
-            background: #0066ff;
+            width: 150px;
+            height: 150px;
+            background: var(--gradient-4);
             border-radius: 20%;
             top: 80%;
             left: 20%;
             animation-delay: 4s;
-            animation-duration: 22s;
+            animation-duration: 30s;
+            filter: blur(50px);
         }
 
         @keyframes float-shape {
@@ -235,9 +134,198 @@
             }
         }
 
+        .error-container {
+            text-align: center;
+            padding: 3rem;
+            max-width: 700px;
+            animation: fadeInUp 1s ease-out;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 15px 50px rgba(0, 102, 255, 0.15);
+            border: 2px solid rgba(0, 102, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .error-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 102, 255, 0.05), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+            50%, 100% {
+                left: 100%;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .error-code {
+            font-size: 11rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #0066ff, #00a8ff, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s ease-in-out infinite;
+            background-size: 200% 200%;
+            animation: gradientShift 5s ease infinite, pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .error-icon {
+            font-size: 5.5rem;
+            color: #FFA500;
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 25px rgba(255, 165, 0, 0.4));
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-25px) rotate(10deg);
+            }
+        }
+
+        .error-title {
+            font-size: 2.8rem;
+            color: var(--text-light);
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .error-message {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .error-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.1rem 2.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.05rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn i {
+            transition: transform 0.3s;
+        }
+
+        .btn:hover i {
+            transform: translateX(3px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #0066ff, #00a8ff);
+            color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 102, 255, 0.3);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(0, 102, 255, 0.5);
+            background: linear-gradient(135deg, #0052cc, #0066ff);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(0, 102, 255, 0.4);
+        }
+
         @media (max-width: 768px) {
             .error-code {
-                font-size: 6rem;
+                font-size: 7rem;
+            }
+
+            .error-icon {
+                font-size: 4rem;
             }
 
             .error-title {
@@ -246,15 +334,21 @@
 
             .error-message {
                 font-size: 1rem;
+                padding: 0 1rem;
             }
 
             .error-buttons {
                 flex-direction: column;
+                padding: 0 1rem;
             }
 
             .btn {
                 width: 100%;
                 justify-content: center;
+            }
+
+            .error-container {
+                padding: 2rem 1.5rem;
             }
         }
     </style>
@@ -275,7 +369,7 @@
         <div class="error-code">404</div>
         <h1 class="error-title">Page Not Found</h1>
         <p class="error-message">
-            Oops! The page you're looking for doesn't exist. It might have been moved or deleted.
+            Oops! The page you're looking for doesn't exist. It might have been moved or deleted. Let's get you back on track!
         </p>
         <div class="error-buttons">
             <a href="index.html" class="btn btn-primary">
@@ -290,7 +384,36 @@
     </div>
 
     <script>
-        // Protection removed - right-click and inspect enabled
+        // Disable right-click
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            return false;
+        });
+
+        // Disable F12 and other shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+                (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+                (e.ctrlKey && e.shiftKey && e.key === 'C') ||
+                (e.ctrlKey && e.key === 'u') ||
+                (e.ctrlKey && e.key === 's')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Disable text selection
+        document.addEventListener('selectstart', (e) => {
+            e.preventDefault();
+            return false;
+        });
+
+        // Disable copy
+        document.addEventListener('copy', (e) => {
+            e.preventDefault();
+            return false;
+        });
     </script>
 </body>
 </html>
