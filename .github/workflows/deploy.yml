@@ -7,8 +7,40 @@ on:
   workflow_dispatch:
 
 jobs:
+  request-approval:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Send Slack notification - Approval Required
+        run: |
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          COMMIT_SHA="${{ github.sha }}"
+          SHORT_SHA="${COMMIT_SHA:0:7}"
+          curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
+          -H 'Content-Type: application/json' \
+          -d "{
+            \"text\": \"⚠️ *Deployment Approval Required*\",
+            \"blocks\": [
+              {
+                \"type\": \"section\",
+                \"text\": {
+                  \"type\": \"mrkdwn\",
+                  \"text\": \"⚠️ *Deployment Approval Required*\n\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Triggered by:* ${{ github.actor }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\n\n🔗 <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Click here to approve or reject>\"
+                }
+              }
+            ]
+          }"
+
   deploy:
     runs-on: ubuntu-latest
+    needs: request-approval
+    environment:
+      name: production
     
     steps:
       - name: Checkout code
@@ -23,13 +55,13 @@ jobs:
           curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
           -H 'Content-Type: application/json' \
           -d "{
-            \"text\": \" *Deployment Started*\",
+            \"text\": \"🚀 *Deployment Started*\",
             \"blocks\": [
               {
                 \"type\": \"section\",
                 \"text\": {
                   \"type\": \"mrkdwn\",
-                  \"text\": \" *Deployment Started*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Triggered by:* ${{ github.actor }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\"
+                  \"text\": \"🚀 *Deployment Started*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Triggered by:* ${{ github.actor }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\n*Approved by:* ${{ github.actor }}\"
                 }
               }
             ]
@@ -74,13 +106,13 @@ jobs:
           curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
           -H 'Content-Type: application/json' \
           -d "{
-            \"text\": \"*Deployment Successful*\",
+            \"text\": \"✅ *Deployment Successful*\",
             \"blocks\": [
               {
                 \"type\": \"section\",
                 \"text\": {
                   \"type\": \"mrkdwn\",
-                  \"text\": \"*Deployment Successful*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\n*Status:* Success 🎉\n\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Workflow>\"
+                  \"text\": \"✅ *Deployment Successful*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\n*Status:* Success 🎉\n\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Workflow>\"
                 }
               }
             ]
@@ -95,13 +127,13 @@ jobs:
           curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
           -H 'Content-Type: application/json' \
           -d "{
-            \"text\": \"*Deployment Failed*\",
+            \"text\": \"❌ *Deployment Failed*\",
             \"blocks\": [
               {
                 \"type\": \"section\",
                 \"text\": {
                   \"type\": \"mrkdwn\",
-                  \"text\": \"*Deployment Failed*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\n*Triggered by:* ${{ github.actor }}\n\n⚠️ Please check the logs\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Logs>\"
+                  \"text\": \"❌ *Deployment Failed*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\n*Triggered by:* ${{ github.actor }}\n\n⚠️ Please check the logs\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Logs>\"
                 }
               }
             ]
