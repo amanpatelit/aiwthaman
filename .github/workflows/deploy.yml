@@ -9,8 +9,6 @@ on:
 jobs:
   request-approval:
     runs-on: ubuntu-latest
-    environment:
-      name: production
     
     steps:
       - name: Checkout code
@@ -27,10 +25,59 @@ jobs:
             \"text\": \"⚠️ *Deployment Approval Required*\",
             \"blocks\": [
               {
+                \"type\": \"header\",
+                \"text\": {
+                  \"type\": \"plain_text\",
+                  \"text\": \"⚠️ Deployment Approval Required\",
+                  \"emoji\": true
+                }
+              },
+              {
+                \"type\": \"section\",
+                \"fields\": [
+                  {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"*Repository:*\n${{ github.repository }}\"
+                  },
+                  {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"*Branch:*\n${{ github.ref_name }}\"
+                  },
+                  {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"*Triggered by:*\n${{ github.actor }}\"
+                  },
+                  {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"*Commit:*\n\`${SHORT_SHA}\`\"
+                  }
+                ]
+              },
+              {
                 \"type\": \"section\",
                 \"text\": {
                   \"type\": \"mrkdwn\",
-                  \"text\": \"⚠️ *Deployment Approval Required*\n\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Triggered by:* ${{ github.actor }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\n\n🔗 <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Click here to approve or reject>\"
+                  \"text\": \"*Commit Message:*\n${COMMIT_MSG}\"
+                }
+              },
+              {
+                \"type\": \"divider\"
+              },
+              {
+                \"type\": \"section\",
+                \"text\": {
+                  \"type\": \"mrkdwn\",
+                  \"text\": \"🔔 *Action Required:* Click the button below to review and approve this deployment\"
+                },
+                \"accessory\": {
+                  \"type\": \"button\",
+                  \"text\": {
+                    \"type\": \"plain_text\",
+                    \"text\": \"Review & Approve\",
+                    \"emoji\": true
+                  },
+                  \"url\": \"${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\",
+                  \"style\": \"primary\"
                 }
               }
             ]
@@ -46,8 +93,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Send Slack notification - Deployment started
-        if: always()
+      - name: Send Slack notification - Deployment Approved & Started
         run: |
           COMMIT_MSG="${{ github.event.head_commit.message }}"
           COMMIT_SHA="${{ github.sha }}"
@@ -55,13 +101,42 @@ jobs:
           curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
           -H 'Content-Type: application/json' \
           -d "{
-            \"text\": \"🚀 *Deployment Started*\",
+            \"text\": \"✅ *Deployment Approved - Starting Now*\",
             \"blocks\": [
+              {
+                \"type\": \"header\",
+                \"text\": {
+                  \"type\": \"plain_text\",
+                  \"text\": \"✅ Deployment Approved & Started\",
+                  \"emoji\": true
+                }
+              },
+              {
+                \"type\": \"section\",
+                \"fields\": [
+                  {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"*Repository:*\n${{ github.repository }}\"
+                  },
+                  {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"*Branch:*\n${{ github.ref_name }}\"
+                  },
+                  {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"*Approved by:*\n${{ github.actor }}\"
+                  },
+                  {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"*Commit:*\n\`${SHORT_SHA}\`\"
+                  }
+                ]
+              },
               {
                 \"type\": \"section\",
                 \"text\": {
                   \"type\": \"mrkdwn\",
-                  \"text\": \"🚀 *Deployment Started*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Triggered by:* ${{ github.actor }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\n*Approved by:* ${{ github.actor }}\"
+                  \"text\": \"🚀 Deployment is now in progress...\"
                 }
               }
             ]
@@ -97,7 +172,7 @@ jobs:
       - name: Deployment complete
         run: echo "Website deployed successfully to S3!"
 
-      - name: Send Slack notification - Deployment success
+      - name: Send Slack notification - Deployment Success
         if: success()
         run: |
           COMMIT_MSG="${{ github.event.head_commit.message }}"
@@ -109,16 +184,52 @@ jobs:
             \"text\": \"✅ *Deployment Successful*\",
             \"blocks\": [
               {
+                \"type\": \"header\",
+                \"text\": {
+                  \"type\": \"plain_text\",
+                  \"text\": \"✅ Deployment Successful\",
+                  \"emoji\": true
+                }
+              },
+              {
+                \"type\": \"section\",
+                \"fields\": [
+                  {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"*Repository:*\n${{ github.repository }}\"
+                  },
+                  {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"*Branch:*\n${{ github.ref_name }}\"
+                  },
+                  {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"*Commit:*\n\`${SHORT_SHA}\`\"
+                  },
+                  {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"*Status:*\n🎉 Success\"
+                  }
+                ]
+              },
+              {
                 \"type\": \"section\",
                 \"text\": {
                   \"type\": \"mrkdwn\",
-                  \"text\": \"✅ *Deployment Successful*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\n*Status:* Success 🎉\n\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Workflow>\"
+                  \"text\": \"*Commit Message:*\n${COMMIT_MSG}\"
+                }
+              },
+              {
+                \"type\": \"section\",
+                \"text\": {
+                  \"type\": \"mrkdwn\",
+                  \"text\": \"<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Workflow Details>\"
                 }
               }
             ]
           }"
 
-      - name: Send Slack notification - Deployment failed
+      - name: Send Slack notification - Deployment Failed
         if: failure()
         run: |
           COMMIT_MSG="${{ github.event.head_commit.message }}"
@@ -130,10 +241,46 @@ jobs:
             \"text\": \"❌ *Deployment Failed*\",
             \"blocks\": [
               {
+                \"type\": \"header\",
+                \"text\": {
+                  \"type\": \"plain_text\",
+                  \"text\": \"❌ Deployment Failed\",
+                  \"emoji\": true
+                }
+              },
+              {
+                \"type\": \"section\",
+                \"fields\": [
+                  {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"*Repository:*\n${{ github.repository }}\"
+                  },
+                  {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"*Branch:*\n${{ github.ref_name }}\"
+                  },
+                  {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"*Commit:*\n\`${SHORT_SHA}\`\"
+                  },
+                  {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"*Triggered by:*\n${{ github.actor }}\"
+                  }
+                ]
+              },
+              {
                 \"type\": \"section\",
                 \"text\": {
                   \"type\": \"mrkdwn\",
-                  \"text\": \"❌ *Deployment Failed*\n*Repository:* ${{ github.repository }}\n*Branch:* ${{ github.ref_name }}\n*Commit:* \`${SHORT_SHA}\` - ${COMMIT_MSG}\n*Triggered by:* ${{ github.actor }}\n\n⚠️ Please check the logs\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Logs>\"
+                  \"text\": \"⚠️ *Error:* Deployment failed. Please check the logs for details.\"
+                }
+              },
+              {
+                \"type\": \"section\",
+                \"text\": {
+                  \"type\": \"mrkdwn\",
+                  \"text\": \"<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Error Logs>\"
                 }
               }
             ]
