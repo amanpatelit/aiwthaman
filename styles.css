@@ -1229,6 +1229,92 @@ footer::before {
     margin-right: auto;
 }
 
+/* Recognition Badge */
+.recognition-badge {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.08), rgba(0, 168, 255, 0.08));
+    border: 2px solid rgba(0, 102, 255, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 700px;
+    animation: fadeInUp 0.8s ease-out backwards;
+    animation-delay: 0.3s;
+    transition: all 0.3s;
+}
+
+.recognition-badge:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.2);
+    border-color: rgba(0, 102, 255, 0.4);
+}
+
+.badge-icon {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #0066ff, #00a8ff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.badge-icon i {
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+.badge-content {
+    flex: 1;
+    text-align: left;
+}
+
+.badge-content h4 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+}
+
+.badge-content p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.badge-description {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .recognition-badge {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .badge-content {
+        text-align: center;
+    }
+
+    .badge-icon {
+        width: 70px;
+        height: 70px;
+    }
+
+    .badge-icon i {
+        font-size: 2rem;
+    }
+}
+
 .highlight-item {
     display: flex;
     align-items: center;
