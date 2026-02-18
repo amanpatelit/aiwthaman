@@ -1234,21 +1234,22 @@ footer::before {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    background: linear-gradient(135deg, rgba(0, 102, 255, 0.08), rgba(0, 168, 255, 0.08));
-    border: 2px solid rgba(0, 102, 255, 0.2);
+    background: #ffffff;
+    border: 2px solid rgba(0, 102, 255, 0.3);
     border-radius: 16px;
     padding: 2rem;
-    margin: 2rem auto;
+    margin: 2.5rem auto;
     max-width: 700px;
     animation: fadeInUp 0.8s ease-out backwards;
     animation-delay: 0.3s;
     transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(0, 102, 255, 0.15);
 }
 
 .recognition-badge:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.2);
-    border-color: rgba(0, 102, 255, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.25);
+    border-color: rgba(0, 102, 255, 0.5);
 }
 
 .badge-icon {
@@ -1261,6 +1262,7 @@ footer::before {
     align-items: center;
     justify-content: center;
     animation: pulse 2s ease-in-out infinite;
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
 }
 
 .badge-icon i {
