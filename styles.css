@@ -1911,3 +1911,29 @@ body:has(.projects) .project-card {
     opacity: 1 !important;
     transform: none !important;
 }
+
+
+/* Disable ALL icon animations across entire website */
+.pulse-icon,
+.bounce-icon,
+.rotate-icon,
+i.pulse-icon,
+i.bounce-icon,
+i.rotate-icon,
+.skill-card i,
+.project-card i,
+.contact-item i,
+.quick-link-card i,
+.floating-icon,
+.project-icon i,
+.highlight-item i {
+    animation: none !important;
+}
+
+/* Remove hover animations on icons */
+.skill-card:hover i,
+.project-card:hover .project-icon i,
+.contact-item:hover i,
+.quick-link-card:hover i {
+    transform: none !important;
+}
