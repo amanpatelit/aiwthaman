@@ -41,7 +41,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Animate elements on scroll with fade-in-up
+// Animate elements on scroll with fade-in-up (excluding projects page)
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -50,14 +50,20 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-up');
+            // Only add animation if not on projects page
+            if (!window.location.pathname.includes('projects.html')) {
+                entry.target.classList.add('fade-in-up');
+            }
         }
     });
 }, observerOptions);
 
-document.querySelectorAll('.skill-card, .project-card, .quick-link-card').forEach(el => {
-    observer.observe(el);
-});
+// Only observe elements if not on projects page
+if (!window.location.pathname.includes('projects.html')) {
+    document.querySelectorAll('.skill-card, .project-card, .quick-link-card').forEach(el => {
+        observer.observe(el);
+    });
+}
 
 // Skill Progress Bar Animation
 const progressObserver = new IntersectionObserver((entries) => {
@@ -93,7 +99,7 @@ setInterval(updateClock, 1000);
 // Typing Effect
 const typedTextElement = document.getElementById('typed-text');
 if (typedTextElement) {
-    const textArray = ['AWS Expert', 'Kubernetes Specialist', 'CI/CD Architect', 'Infrastructure as Code', 'AI Integration Expert'];
+    const textArray = ['AWS Expert', 'Cloud Architect', 'Serverless Specialist', 'Infrastructure as Code', 'AI Integration Expert'];
     let textArrayIndex = 0;
     let charIndex = 0;
 
