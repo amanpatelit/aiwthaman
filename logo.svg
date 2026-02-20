@@ -5,12 +5,12 @@
       <stop offset="50%" style="stop-color:#00a8ff;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#00ff99;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#00ff99;stop-opacity:0.3" />
-      <stop offset="100%" style="stop-color:#0066ff;stop-opacity:0.3" />
+    <linearGradient id="cloudGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff99;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00a8ff;stop-opacity:1" />
     </linearGradient>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -18,67 +18,49 @@
     </filter>
   </defs>
   
-  <!-- Background Circle with Glow -->
-  <circle cx="100" cy="100" r="95" fill="url(#glowGradient)" opacity="0.2"/>
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="url(#mainGradient)" stroke-width="2" opacity="0.3"/>
   
-  <!-- Outer Ring -->
-  <circle cx="100" cy="100" r="85" fill="none" stroke="url(#mainGradient)" stroke-width="3" opacity="0.6"/>
-  
-  <!-- Cloud Symbol (representing Cloud Computing) -->
-  <g transform="translate(100, 70)">
-    <path d="M -25 0 Q -25 -15, -10 -15 Q -10 -25, 0 -25 Q 10 -25, 10 -15 Q 25 -15, 25 0 Q 25 10, 15 10 L -15 10 Q -25 10, -25 0 Z" 
-          fill="url(#mainGradient)" filter="url(#glow)"/>
+  <!-- Cloud Shape (Top) -->
+  <g transform="translate(100, 65)">
+    <path d="M -30 0 Q -30 -18, -12 -18 Q -12 -28, 0 -28 Q 12 -28, 12 -18 Q 30 -18, 30 0 Q 30 12, 18 12 L -18 12 Q -30 12, -30 0 Z" 
+          fill="url(#cloudGradient)" 
+          filter="url(#glow)"/>
+    
+    <!-- Cloud Lines (representing data/connectivity) -->
+    <line x1="-15" y1="5" x2="-15" y2="10" stroke="#0066ff" stroke-width="2" opacity="0.6"/>
+    <line x1="0" y1="5" x2="0" y2="10" stroke="#00a8ff" stroke-width="2" opacity="0.6"/>
+    <line x1="15" y1="5" x2="15" y2="10" stroke="#00ff99" stroke-width="2" opacity="0.6"/>
   </g>
   
-  <!-- AI Brain Circuit (representing AI) -->
-  <g transform="translate(100, 120)">
-    <!-- Central Node -->
-    <circle cx="0" cy="0" r="8" fill="url(#mainGradient)" filter="url(#glow)"/>
-    
-    <!-- Neural Network Connections -->
-    <line x1="-20" y1="-10" x2="-8" y2="-4" stroke="url(#mainGradient)" stroke-width="2" opacity="0.8"/>
-    <line x1="20" y1="-10" x2="8" y2="-4" stroke="url(#mainGradient)" stroke-width="2" opacity="0.8"/>
-    <line x1="-20" y1="10" x2="-8" y2="4" stroke="url(#mainGradient)" stroke-width="2" opacity="0.8"/>
-    <line x1="20" y1="10" x2="8" y2="4" stroke="url(#mainGradient)" stroke-width="2" opacity="0.8"/>
-    
-    <!-- Outer Nodes -->
-    <circle cx="-20" cy="-10" r="5" fill="url(#mainGradient)"/>
-    <circle cx="20" cy="-10" r="5" fill="url(#mainGradient)"/>
-    <circle cx="-20" cy="10" r="5" fill="url(#mainGradient)"/>
-    <circle cx="20" cy="10" r="5" fill="url(#mainGradient)"/>
-  </g>
-  
-  <!-- Letter "A" integrated with design -->
-  <g transform="translate(100, 100)">
-    <path d="M -15 20 L 0 -30 L 15 20 M -10 5 L 10 5" 
-          stroke="url(#mainGradient)" 
-          stroke-width="4" 
-          fill="none" 
-          stroke-linecap="round" 
-          stroke-linejoin="round"
+  <!-- Letter "A" (Center) - Bold and Modern -->
+  <g transform="translate(100, 115)">
+    <path d="M -22 35 L -8 -15 L 8 -15 L 22 35 L 10 35 L 6 20 L -6 20 L -10 35 Z M -3 10 L 3 10 L 0 -5 Z" 
+          fill="url(#mainGradient)" 
           filter="url(#glow)"/>
   </g>
   
-  <!-- Decorative Tech Elements -->
-  <g opacity="0.4">
-    <!-- Corner Brackets -->
-    <path d="M 30 30 L 30 50 M 30 30 L 50 30" stroke="url(#mainGradient)" stroke-width="2" stroke-linecap="round"/>
-    <path d="M 170 30 L 170 50 M 170 30 L 150 30" stroke="url(#mainGradient)" stroke-width="2" stroke-linecap="round"/>
-    <path d="M 30 170 L 30 150 M 30 170 L 50 170" stroke="url(#mainGradient)" stroke-width="2" stroke-linecap="round"/>
-    <path d="M 170 170 L 170 150 M 170 170 L 150 170" stroke="url(#mainGradient)" stroke-width="2" stroke-linecap="round"/>
+  <!-- Network Nodes (Bottom) - representing connectivity -->
+  <g transform="translate(100, 155)">
+    <circle cx="-25" cy="0" r="4" fill="#0066ff" opacity="0.8"/>
+    <circle cx="0" cy="0" r="5" fill="#00a8ff"/>
+    <circle cx="25" cy="0" r="4" fill="#00ff99" opacity="0.8"/>
+    
+    <line x1="-25" y1="0" x2="0" y2="0" stroke="url(#mainGradient)" stroke-width="1.5" opacity="0.5"/>
+    <line x1="0" y1="0" x2="25" y2="0" stroke="url(#mainGradient)" stroke-width="1.5" opacity="0.5"/>
   </g>
   
-  <!-- Animated Particles (represented as small circles) -->
-  <circle cx="60" cy="60" r="2" fill="#00ff99" opacity="0.8">
-    <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="140" cy="60" r="2" fill="#0066ff" opacity="0.8">
-    <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="60" cy="140" r="2" fill="#00a8ff" opacity="0.8">
-    <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="140" cy="140" r="2" fill="#00ff99" opacity="0.8">
-    <animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" repeatCount="indefinite"/>
-  </circle>
+  <!-- Corner Tech Elements -->
+  <g opacity="0.3">
+    <path d="M 25 25 L 25 40 M 25 25 L 40 25" stroke="url(#mainGradient)" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 175 25 L 175 40 M 175 25 L 160 25" stroke="url(#mainGradient)" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 25 175 L 25 160 M 25 175 L 40 175" stroke="url(#mainGradient)" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 175 175 L 175 160 M 175 175 L 160 175" stroke="url(#mainGradient)" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Decorative Dots -->
+  <circle cx="50" cy="50" r="2" fill="#00ff99" opacity="0.6"/>
+  <circle cx="150" cy="50" r="2" fill="#0066ff" opacity="0.6"/>
+  <circle cx="50" cy="150" r="2" fill="#00a8ff" opacity="0.6"/>
+  <circle cx="150" cy="150" r="2" fill="#00ff99" opacity="0.6"/>
 </svg>
