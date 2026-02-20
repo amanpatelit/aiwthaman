@@ -93,7 +93,7 @@ setInterval(updateClock, 1000);
 // Typing Effect
 const typedTextElement = document.getElementById('typed-text');
 if (typedTextElement) {
-    const textArray = ['AWS Expert', 'Kubernetes Specialist', 'CI/CD Architect', 'Infrastructure as Code', 'AI Integration Expert'];
+    const textArray = ['AWS Expert', 'Cloud Architect', 'Serverless Specialist', 'Infrastructure as Code', 'AI Integration Expert'];
     let textArrayIndex = 0;
     let charIndex = 0;
 
