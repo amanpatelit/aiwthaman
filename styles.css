@@ -1897,3 +1897,17 @@ input, textarea {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* Disable all animations on projects page */
+body:has(.projects) .project-card,
+body:has(.projects) .project-icon,
+body:has(.projects) .project-icon i {
+    animation: none !important;
+    transition: none !important;
+}
+
+body:has(.projects) .project-card {
+    opacity: 1 !important;
+    transform: none !important;
+}
