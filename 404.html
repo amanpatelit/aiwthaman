@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Page Not Found - aiwithaman">
     <title>404 - Page Not Found | aiwithaman</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="logo-simple.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -20,10 +20,8 @@
 
         :root {
             --primary-color: #00ff99;
-            --secondary-color: #00cc99;
+            --secondary-color: #0066ff;
             --dark-bg: #0a0e1a;
-            --darker-bg: #050812;
-            --card-bg: #1a1f2e;
             --text-light: #ffffff;
             --text-gray: #b0b8c1;
         }
@@ -39,7 +37,7 @@
             position: relative;
         }
 
-        /* Subtle Background Pattern */
+        /* Animated Background */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -48,26 +46,69 @@
             height: 100%;
             z-index: -1;
             overflow: hidden;
-            opacity: 0.5;
         }
 
-        .animated-bg::before {
-            content: '';
+        .floating-shapes {
             position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 20% 50%, rgba(0, 255, 153, 0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(0, 204, 153, 0.05) 0%, transparent 50%);
-            animation: moveBackground 30s ease-in-out infinite;
+            width: 100%;
+            height: 100%;
         }
 
-        @keyframes moveBackground {
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 255, 153, 0.1), transparent);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 250px;
+            height: 250px;
+            bottom: 10%;
+            left: 50%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
             0%, 100% {
-                transform: translate(0, 0);
+                transform: translate(0, 0) scale(1);
+                opacity: 0.3;
             }
-            50% {
-                transform: translate(-30px, -30px);
+            33% {
+                transform: translate(30px, -30px) scale(1.1);
+                opacity: 0.5;
             }
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+                opacity: 0.4;
+            }
+        }
+
+        /* Particle Canvas */
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
         }
 
         /* Navbar */
@@ -97,9 +138,22 @@
             gap: 0.6rem;
         }
 
+        .logo a {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
+
         .logo-icon {
             width: 35px;
             height: 35px;
+            animation: rotate-slow 10s linear infinite;
+        }
+
+        @keyframes rotate-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .logo-text {
@@ -122,14 +176,14 @@
 
         .error-container {
             text-align: center;
-            max-width: 700px;
+            max-width: 900px;
             animation: fadeInUp 0.8s ease-out;
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -137,90 +191,211 @@
             }
         }
 
+        /* Animated 404 */
+        .error-code-wrapper {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
         .error-code {
-            font-size: 10rem;
+            font-size: 12rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #00ff99, #00cc99);
+            background: linear-gradient(135deg, #0066ff, #00ff99, #0066ff);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -5px;
+            letter-spacing: -8px;
+            animation: shimmer 3s linear infinite, glitch 5s infinite;
+            position: relative;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes glitch {
+            0%, 90%, 100% {
+                transform: translate(0);
+            }
+            92% {
+                transform: translate(-2px, 2px);
+            }
+            94% {
+                transform: translate(2px, -2px);
+            }
+            96% {
+                transform: translate(-2px, -2px);
+            }
+        }
+
+        /* Floating Icons */
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.3;
+            animation: float-icon 4s infinite ease-in-out;
+        }
+
+        .floating-icon:nth-child(1) {
+            top: 20%;
+            left: 15%;
+            color: #0066ff;
+            animation-delay: 0s;
+        }
+
+        .floating-icon:nth-child(2) {
+            top: 30%;
+            right: 20%;
+            color: #00ff99;
+            animation-delay: 1s;
+        }
+
+        .floating-icon:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            color: #00a8ff;
+            animation-delay: 2s;
+        }
+
+        .floating-icon:nth-child(4) {
+            bottom: 20%;
+            right: 15%;
+            color: #00ff99;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float-icon {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
         }
 
         .error-title {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--text-light);
             margin-bottom: 1rem;
             font-weight: 700;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
         }
 
         .error-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--text-gray);
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
             line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
         }
 
-        .error-message {
-            font-size: 1rem;
-            color: var(--text-gray);
+        /* Quick Links Grid */
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
             margin-bottom: 3rem;
-            line-height: 1.7;
-            max-width: 550px;
-            margin-left: auto;
-            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
         }
 
-        /* Suggestions Box */
-        .suggestions {
-            background: rgba(26, 31, 46, 0.6);
-            border: 1px solid rgba(0, 255, 153, 0.1);
+        .quick-link-card {
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 255, 153, 0.05) 100%);
+            border: 1px solid rgba(0, 255, 153, 0.2);
             border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            backdrop-filter: blur(10px);
+            padding: 2rem 1.5rem;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .suggestions h3 {
-            color: var(--primary-color);
-            font-size: 1.1rem;
+        .quick-link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 153, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .quick-link-card:hover::before {
+            left: 100%;
+        }
+
+        .quick-link-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(0, 255, 153, 0.5);
+            box-shadow: 0 15px 35px rgba(0, 255, 153, 0.3);
+        }
+
+        .quick-link-card i {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
-            font-weight: 600;
+            color: #00ff99;
+            display: block;
+            animation: bounce 2s infinite;
         }
 
-        .suggestions ul {
-            list-style: none;
-            text-align: left;
-            max-width: 400px;
-            margin: 0 auto;
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
-        .suggestions li {
+        .quick-link-card:nth-child(2) i {
+            animation-delay: 0.2s;
+        }
+
+        .quick-link-card:nth-child(3) i {
+            animation-delay: 0.4s;
+        }
+
+        .quick-link-card:nth-child(4) i {
+            animation-delay: 0.6s;
+        }
+
+        .quick-link-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .quick-link-card p {
             color: var(--text-gray);
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .suggestions li i {
-            color: var(--primary-color);
             font-size: 0.9rem;
         }
 
+        /* Action Buttons */
         .error-buttons {
             display: flex;
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.8s backwards;
         }
 
         .btn {
             padding: 1rem 2.5rem;
-            border-radius: 8px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -232,24 +407,50 @@
             overflow: hidden;
         }
 
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
         .btn i {
             transition: transform 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
         }
 
         .btn:hover i {
-            transform: translateX(3px);
+            transform: translateX(5px);
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #00ff99, #00cc99);
-            color: #0a0e1a;
+            background: linear-gradient(135deg, #0066ff, #00ff99);
+            color: #ffffff;
             border: none;
             font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 255, 153, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 255, 153, 0.4);
         }
 
         .btn-secondary {
@@ -260,7 +461,8 @@
 
         .btn-secondary:hover {
             background: rgba(0, 255, 153, 0.1);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 255, 153, 0.2);
         }
 
         /* Footer */
@@ -274,9 +476,11 @@
             z-index: 1;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
             .error-code {
-                font-size: 6rem;
+                font-size: 7rem;
+                letter-spacing: -5px;
             }
 
             .error-title {
@@ -284,16 +488,11 @@
             }
 
             .error-subtitle {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
 
-            .error-message {
-                font-size: 0.95rem;
-                padding: 0 1rem;
-            }
-
-            .suggestions {
-                padding: 1.5rem;
+            .quick-links-grid {
+                grid-template-columns: 1fr;
             }
 
             .error-buttons {
@@ -305,27 +504,41 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .floating-icon {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="animated-bg"></div>
+    <div class="animated-bg">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+    </div>
+
+    <canvas id="particles"></canvas>
 
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#00ff99;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#0066ff;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <circle cx="50" cy="20" r="8" fill="url(#logoGradient)"/>
-                    <path d="M 30 85 L 42 45 L 58 45 L 70 85 L 60 85 L 56 65 L 44 65 L 40 85 Z M 46 57 L 54 57 L 50 40 Z" fill="url(#logoGradient)"/>
-                </svg>
-                <span class="logo-text">aiwithaman</span>
+                <a href="index.html">
+                    <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#00ff99;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#0066ff;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="20" r="8" fill="url(#logoGradient)"/>
+                        <path d="M 30 85 L 42 45 L 58 45 L 70 85 L 60 85 L 56 65 L 44 65 L 40 85 Z M 46 57 L 54 57 L 50 40 Z" fill="url(#logoGradient)"/>
+                    </svg>
+                    <span class="logo-text">aiwithaman</span>
+                </a>
             </div>
         </div>
     </nav>
@@ -333,28 +546,50 @@
     <!-- Error Section -->
     <section class="error-section">
         <div class="error-container">
-            <div class="error-code">404</div>
-            <h1 class="error-title">Page Not Found</h1>
-            <p class="error-subtitle">The page you are looking for doesn't exist or has been moved.</p>
+            <div class="error-code-wrapper">
+                <div class="floating-icons">
+                    <i class="fas fa-cloud floating-icon"></i>
+                    <i class="fas fa-robot floating-icon"></i>
+                    <i class="fas fa-server floating-icon"></i>
+                    <i class="fas fa-code floating-icon"></i>
+                </div>
+                <div class="error-code">404</div>
+            </div>
             
-            <div class="suggestions">
-                <h3>Here's what you can do:</h3>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i> Check the URL for typos</li>
-                    <li><i class="fas fa-check-circle"></i> Return to the homepage</li>
-                    <li><i class="fas fa-check-circle"></i> Use the navigation menu</li>
-                    <li><i class="fas fa-check-circle"></i> Contact support if the issue persists</li>
-                </ul>
+            <h1 class="error-title">Oops! Page Not Found</h1>
+            <p class="error-subtitle">The page you're looking for seems to have wandered off into the cloud. Let's get you back on track!</p>
+            
+            <div class="quick-links-grid">
+                <a href="index.html" class="quick-link-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Home</h3>
+                    <p>Back to homepage</p>
+                </a>
+                <a href="about.html" class="quick-link-card">
+                    <i class="fas fa-user-circle"></i>
+                    <h3>About</h3>
+                    <p>Learn about me</p>
+                </a>
+                <a href="projects.html" class="quick-link-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Projects</h3>
+                    <p>View my work</p>
+                </a>
+                <a href="contact.html" class="quick-link-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Contact</h3>
+                    <p>Get in touch</p>
+                </a>
             </div>
 
             <div class="error-buttons">
                 <a href="index.html" class="btn btn-primary">
                     <i class="fas fa-home"></i>
-                    Back to Home
+                    <span>Back to Home</span>
                 </a>
                 <a href="javascript:history.back()" class="btn btn-secondary">
                     <i class="fas fa-arrow-left"></i>
-                    Go Back
+                    <span>Go Back</span>
                 </a>
             </div>
         </div>
@@ -368,13 +603,94 @@
     </footer>
 
     <script>
-        // Disable right-click
+        // Particle Animation
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particlesArray = [];
+        const numberOfParticles = 80;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width || this.x < 0) {
+                    this.speedX = -this.speedX;
+                }
+                if (this.y > canvas.height || this.y < 0) {
+                    this.speedY = -this.speedY;
+                }
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(0, 255, 153, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particlesArray = [];
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+                
+                for (let j = i; j < particlesArray.length; j++) {
+                    const dx = particlesArray[i].x - particlesArray[j].x;
+                    const dy = particlesArray[i].y - particlesArray[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 100) {
+                        ctx.strokeStyle = `rgba(0, 255, 153, ${0.15 - distance / 700})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+                        ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            
+            requestAnimationFrame(animateParticles);
+        }
+
+        initParticles();
+        animateParticles();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
+
+        // Protection features
         document.addEventListener('contextmenu', (e) => {
             e.preventDefault();
             return false;
         });
 
-        // Disable F12 and other shortcuts
         document.addEventListener('keydown', (e) => {
             if (e.key === 'F12' || 
                 (e.ctrlKey && e.shiftKey && e.key === 'I') ||
@@ -387,13 +703,11 @@
             }
         });
 
-        // Disable text selection
         document.addEventListener('selectstart', (e) => {
             e.preventDefault();
             return false;
         });
 
-        // Disable copy
         document.addEventListener('copy', (e) => {
             e.preventDefault();
             return false;
