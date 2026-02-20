@@ -163,7 +163,7 @@ if (canvas) {
         }
 
         draw() {
-            ctx.fillStyle = `rgba(0, 204, 153, ${this.opacity})`;
+            ctx.fillStyle = `rgba(34, 197, 94, ${this.opacity})`;
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
@@ -191,7 +191,7 @@ if (canvas) {
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 
                 if (distance < 100) {
-                    ctx.strokeStyle = `rgba(0, 204, 153, ${0.2 - distance / 500})`;
+                    ctx.strokeStyle = `rgba(34, 197, 94, ${0.2 - distance / 500})`;
                     ctx.lineWidth = 1;
                     ctx.beginPath();
                     ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
@@ -353,3 +353,4 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         }
     });
 });
+
