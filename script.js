@@ -23,9 +23,10 @@ if (hamburger && navLinks) {
         navLinks.style.position = 'absolute';
         navLinks.style.top = '60px';
         navLinks.style.right = '20px';
-        navLinks.style.backgroundColor = 'rgba(10, 14, 39, 0.98)';
+        navLinks.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
         navLinks.style.padding = '1rem';
-        navLinks.style.borderRadius = '5px';
+        navLinks.style.borderRadius = '8px';
+        navLinks.style.boxShadow = '0 8px 32px rgba(59, 130, 246, 0.15)';
     });
 }
 
@@ -34,9 +35,11 @@ window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (navbar) {
         if (window.scrollY > 50) {
-            navbar.style.backgroundColor = 'rgba(10, 14, 39, 0.98)';
+            navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 4px 24px rgba(59, 130, 246, 0.12)';
         } else {
-            navbar.style.backgroundColor = 'rgba(10, 14, 39, 0.95)';
+            navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = '0 4px 24px rgba(59, 130, 246, 0.08)';
         }
     }
 });
