@@ -1421,43 +1421,128 @@ footer p {
 /* AWS Community Builder Certificate */
 .certificate-section {
     margin: 4rem auto 3rem;
-    max-width: 900px;
+    max-width: 1000px;
 }
 
-.certificate-section h3 {
-    color: #22c55e;
-    font-size: 1.75rem;
-    margin-bottom: 2rem;
-    text-align: center;
-    font-weight: 700;
+.certificate-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.certificate-header i {
+    font-size: 3rem;
+    color: #FF9900;
+    filter: drop-shadow(0 4px 16px rgba(255, 153, 0, 0.5));
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+.certificate-header h3 {
+    color: #ffffff;
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #FF9900, #22c55e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .certificate-card {
-    padding: 2rem;
-    background: linear-gradient(135deg, rgba(22, 27, 38, 0.9), rgba(15, 20, 25, 0.9));
-    border: 1px solid rgba(34, 197, 94, 0.2);
-    border-radius: 14px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(16px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(255, 153, 0, 0.05), rgba(34, 197, 94, 0.05));
+    border: 2px solid rgba(255, 153, 0, 0.3);
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(255, 153, 0, 0.2), 
+                0 0 60px rgba(255, 153, 0, 0.1);
+    overflow: hidden;
+}
+
+.certificate-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 153, 0, 0.15) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .certificate-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(34, 197, 94, 0.4);
-    box-shadow: 0 12px 40px rgba(34, 197, 94, 0.25);
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(255, 153, 0, 0.5);
+    box-shadow: 0 16px 48px rgba(255, 153, 0, 0.3), 
+                0 0 80px rgba(255, 153, 0, 0.2),
+                inset 0 0 60px rgba(255, 153, 0, 0.05);
 }
 
 .certificate-image {
     width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 12px;
     display: block;
-    transition: transform 0.3s;
+    transition: transform 0.4s;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .certificate-card:hover .certificate-image {
-    transform: scale(1.02);
+    transform: scale(1.03);
+}
+
+.certificate-badge {
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #22c55e, #3b82f6);
+    border-radius: 50px;
+    box-shadow: 0 4px 16px rgba(34, 197, 94, 0.4);
+    z-index: 2;
+    animation: badgePulse 3s ease-in-out infinite;
+}
+
+.certificate-badge i {
+    font-size: 1.25rem;
+    color: #ffffff;
+}
+
+.certificate-badge span {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    letter-spacing: 0.5px;
+}
+
+.certificate-description {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    margin-top: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
 }
 
 @media (max-width: 768px) {
@@ -1465,12 +1550,41 @@ footer p {
         margin: 3rem auto 2rem;
     }
     
-    .certificate-section h3 {
-        font-size: 1.5rem;
+    .certificate-header {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .certificate-header i {
+        font-size: 2.5rem;
+    }
+    
+    .certificate-header h3 {
+        font-size: 1.75rem;
+        text-align: center;
     }
     
     .certificate-card {
         padding: 1.5rem;
+    }
+    
+    .certificate-badge {
+        top: 2rem;
+        right: 2rem;
+        padding: 0.625rem 1.25rem;
+    }
+    
+    .certificate-badge i {
+        font-size: 1rem;
+    }
+    
+    .certificate-badge span {
+        font-size: 0.875rem;
+    }
+    
+    .certificate-description {
+        font-size: 1rem;
+        margin-top: 1.5rem;
     }
 }
 
