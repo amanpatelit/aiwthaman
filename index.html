@@ -31,8 +31,7 @@
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="hamburger">
@@ -64,8 +63,8 @@
                     <span id="typed-text"></span><span class="cursor">|</span>
                 </div>
                 <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        <span>View Projects</span>
+                    <a href="#blog" class="btn btn-primary">
+                        <span>Read Blog</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
                     <a href="#contact" class="btn btn-secondary">
@@ -108,14 +107,15 @@
                 </p>
             </div>
             
-            <!-- CloudTechner Recognition Certificate -->
-            <div class="certificate-section">
+            <!-- Recognition & Awards Section -->
+            <div class="recognition-section">
+                <h3 class="recognition-heading">Recognition & Awards</h3>
                 <div class="certificate-container">
                     <div class="certificate-badge-icon">
                         <i class="fas fa-award"></i>
                     </div>
                     <div class="certificate-info">
-                        <h3>🏆 Honored & Grateful – "Got Your Back" Recognition | H2 2025</h3>
+                        <h4>🏆 Honored & Grateful – "Got Your Back" Recognition | H2 2025</h4>
                         <div class="certificate-text">
                             <p>
                                 I'm pleased to share that I've been recognized under the CloudTechner Rewards and 
@@ -252,77 +252,45 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <!-- Blog Section -->
+    <section id="blog" class="blog-section">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <i class="fas fa-robot project-icon"></i>
-                    <h3>AI-Powered DevOps Assistant</h3>
-                    <p>Developed an intelligent DevOps assistant using LangChain and GPT-4 that automates infrastructure troubleshooting, log analysis, and incident response across multi-cloud environments.</p>
-                    <div class="project-tags">
-                        <span>Python</span>
-                        <span>LangChain</span>
-                        <span>OpenAI</span>
-                        <span>AWS</span>
+            <h2 class="section-title">Latest Blog Posts</h2>
+            <div class="blog-posts-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card-home">
+                    <div class="blog-card-header">
+                        <div class="blog-icon-large">
+                            <i class="fab fa-aws"></i>
+                        </div>
+                        <div class="blog-meta-info">
+                            <span class="blog-date-badge"><i class="far fa-calendar"></i> 2024</span>
+                            <span class="blog-platform-badge">AWS Community Builders</span>
+                        </div>
                     </div>
-                </div>
-                <div class="project-card">
-                    <i class="fas fa-cloud-upload-alt project-icon"></i>
-                    <h3>Multi-Cloud Migration Platform</h3>
-                    <p>Architected and executed a seamless migration strategy from on-premises to AWS, Azure, and GCP, reducing infrastructure costs by 40% while improving performance and reliability.</p>
-                    <div class="project-tags">
-                        <span>AWS</span>
-                        <span>Azure</span>
-                        <span>Terraform</span>
-                        <span>Kubernetes</span>
+                    <div class="blog-card-body">
+                        <h3>How to Reuse a PersistentVolume After PVC Deletion with Retain Policy in Kubernetes</h3>
+                        <p>A comprehensive guide on managing Kubernetes PersistentVolumes with Retain policy. Learn best practices for data persistence, volume reuse strategies, and how to properly handle PVC deletion without losing your data.</p>
+                        <div class="blog-tags-list">
+                            <span class="blog-tag">Kubernetes</span>
+                            <span class="blog-tag">DevOps</span>
+                            <span class="blog-tag">AWS</span>
+                            <span class="blog-tag">Storage</span>
+                        </div>
+                        <a href="https://builder.aws.com/content/39zXx80uZG0CpptKrCn9pW1IvQX/how-to-reuse-a-persistentvolume-after-pvc-deletion-with-retain-policy-in-kubernetes" target="_blank" class="blog-read-btn">
+                            Read Full Article <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
-                </div>
-                <div class="project-card">
-                    <i class="fas fa-chart-line project-icon"></i>
-                    <h3>AIOps Monitoring Solution</h3>
-                    <p>Built an intelligent monitoring and alerting system using machine learning to predict infrastructure failures, reducing downtime by 60% and enabling proactive incident management.</p>
-                    <div class="project-tags">
-                        <span>Prometheus</span>
-                        <span>Grafana</span>
-                        <span>Python</span>
-                        <span>ML</span>
+                </article>
+
+                <!-- Coming Soon Card -->
+                <article class="blog-card-home coming-soon-card">
+                    <div class="coming-soon-wrapper">
+                        <i class="fas fa-pen-fancy"></i>
+                        <h3>More Articles Coming Soon</h3>
+                        <p>Stay tuned for more technical insights on DevOps, Kubernetes, Cloud Infrastructure, and AIOps</p>
                     </div>
-                </div>
-                <div class="project-card">
-                    <i class="fas fa-code-branch project-icon"></i>
-                    <h3>Enterprise CI/CD Pipeline</h3>
-                    <p>Designed and implemented a fully automated CI/CD pipeline serving 50+ microservices, achieving deployment frequency of 100+ releases per day with zero-downtime deployments.</p>
-                    <div class="project-tags">
-                        <span>Jenkins</span>
-                        <span>Docker</span>
-                        <span>Kubernetes</span>
-                        <span>GitOps</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <i class="fas fa-shield-alt project-icon"></i>
-                    <h3>Security Automation Framework</h3>
-                    <p>Created a comprehensive security automation framework integrating vulnerability scanning, compliance checking, and automated remediation across cloud infrastructure.</p>
-                    <div class="project-tags">
-                        <span>Python</span>
-                        <span>AWS Security Hub</span>
-                        <span>Terraform</span>
-                        <span>Lambda</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <i class="fas fa-server project-icon"></i>
-                    <h3>Infrastructure as Code Library</h3>
-                    <p>Developed reusable IaC modules and templates for rapid deployment of secure, scalable infrastructure across AWS, Azure, and GCP, reducing provisioning time by 70%.</p>
-                    <div class="project-tags">
-                        <span>Terraform</span>
-                        <span>CloudFormation</span>
-                        <span>Ansible</span>
-                        <span>Multi-Cloud</span>
-                    </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
