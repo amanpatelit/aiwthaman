@@ -1612,16 +1612,16 @@ footer p {
 
 /* Recognition & Awards Section */
 .recognition-section {
-    margin: 4rem auto 3rem;
-    max-width: 1000px;
+    margin: 3rem auto 2.5rem;
+    max-width: 900px;
 }
 
 .recognition-heading {
     color: #22c55e;
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 800;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     letter-spacing: -0.5px;
     position: relative;
     padding-bottom: 1rem;
@@ -1642,15 +1642,15 @@ footer p {
 
 .certificate-container {
     display: flex;
-    gap: 1.5rem;
-    padding: 2.5rem;
+    gap: 1.25rem;
+    padding: 1.75rem;
     background: linear-gradient(135deg, rgba(22, 27, 38, 0.95), rgba(15, 20, 25, 0.95));
     border: 1px solid rgba(255, 153, 0, 0.2);
-    border-left: 4px solid #FF9900;
-    border-radius: 16px;
-    margin-bottom: 2rem;
+    border-left: 3px solid #FF9900;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
     backdrop-filter: blur(16px);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
@@ -1665,9 +1665,9 @@ footer p {
 }
 
 .certificate-badge-icon i {
-    font-size: 3rem;
+    font-size: 2.25rem;
     color: #FF9900;
-    filter: drop-shadow(0 4px 12px rgba(255, 153, 0, 0.4));
+    filter: drop-shadow(0 4px 10px rgba(255, 153, 0, 0.4));
 }
 
 .certificate-info {
@@ -1676,18 +1676,18 @@ footer p {
 
 .certificate-info h4 {
     color: #ffffff;
-    font-size: 1.5rem;
+    font-size: 1.125rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     line-height: 1.4;
     letter-spacing: -0.3px;
 }
 
 .certificate-text p {
     color: #94a3b8;
-    font-size: 1.0625rem;
-    line-height: 1.8;
-    margin-bottom: 1.25rem;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
 }
 
 .certificate-text p:last-child {
@@ -1696,12 +1696,12 @@ footer p {
 
 .certificate-image-wrapper {
     position: relative;
-    padding: 2rem;
+    padding: 1.5rem;
     background: linear-gradient(135deg, rgba(22, 27, 38, 0.95), rgba(15, 20, 25, 0.95));
     border: 1px solid rgba(34, 197, 94, 0.2);
-    border-radius: 16px;
+    border-radius: 12px;
     backdrop-filter: blur(16px);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
@@ -1731,7 +1731,7 @@ footer p {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.625rem 1.25rem;
+    padding: 0.5rem 1rem;
     background: linear-gradient(135deg, #22c55e, #3b82f6);
     border-radius: 50px;
     box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
