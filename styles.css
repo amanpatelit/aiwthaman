@@ -1612,19 +1612,19 @@ footer p {
 
 /* Recognition & Awards Section */
 .recognition-section {
-    margin: 3rem auto 2.5rem;
-    max-width: 900px;
+    margin: 2.5rem auto 2rem;
+    max-width: 800px;
 }
 
 .recognition-heading {
     color: #22c55e;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 800;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     letter-spacing: -0.5px;
     position: relative;
-    padding-bottom: 1rem;
+    padding-bottom: 0.75rem;
 }
 
 .recognition-heading::after {
@@ -1633,24 +1633,24 @@ footer p {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
+    width: 50px;
+    height: 3px;
     background: linear-gradient(90deg, #22c55e, #3b82f6);
     border-radius: 2px;
-    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.4);
+    box-shadow: 0 2px 6px rgba(34, 197, 94, 0.3);
 }
 
 .certificate-container {
     display: flex;
-    gap: 1.25rem;
-    padding: 1.75rem;
+    gap: 1rem;
+    padding: 1.5rem;
     background: linear-gradient(135deg, rgba(22, 27, 38, 0.95), rgba(15, 20, 25, 0.95));
     border: 1px solid rgba(255, 153, 0, 0.2);
     border-left: 3px solid #FF9900;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1.25rem;
     backdrop-filter: blur(16px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
@@ -1665,9 +1665,9 @@ footer p {
 }
 
 .certificate-badge-icon i {
-    font-size: 2.25rem;
+    font-size: 2rem;
     color: #FF9900;
-    filter: drop-shadow(0 4px 10px rgba(255, 153, 0, 0.4));
+    filter: drop-shadow(0 4px 8px rgba(255, 153, 0, 0.4));
 }
 
 .certificate-info {
@@ -1676,18 +1676,18 @@ footer p {
 
 .certificate-info h4 {
     color: #ffffff;
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.875rem;
     line-height: 1.4;
     letter-spacing: -0.3px;
 }
 
 .certificate-text p {
     color: #94a3b8;
-    font-size: 0.9375rem;
-    line-height: 1.7;
-    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 0.875rem;
 }
 
 .certificate-text p:last-child {
@@ -1696,28 +1696,28 @@ footer p {
 
 .certificate-image-wrapper {
     position: relative;
-    padding: 1.5rem;
+    padding: 1.25rem;
     background: linear-gradient(135deg, rgba(22, 27, 38, 0.95), rgba(15, 20, 25, 0.95));
     border: 1px solid rgba(34, 197, 94, 0.2);
-    border-radius: 12px;
+    border-radius: 10px;
     backdrop-filter: blur(16px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
 .certificate-image-wrapper:hover {
-    transform: translateY(-6px);
-    border-color: rgba(34, 197, 94, 0.4);
-    box-shadow: 0 12px 40px rgba(34, 197, 94, 0.25);
+    transform: translateY(-4px);
+    border-color: rgba(34, 197, 94, 0.35);
+    box-shadow: 0 8px 32px rgba(34, 197, 94, 0.25);
 }
 
 .certificate-image {
     width: 100%;
     height: auto;
-    border-radius: 12px;
+    border-radius: 8px;
     display: block;
     transition: transform 0.3s;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .certificate-image-wrapper:hover .certificate-image {
@@ -1726,27 +1726,27 @@ footer p {
 
 .certificate-verified {
     position: absolute;
-    top: 2.5rem;
-    right: 2.5rem;
+    top: 1.75rem;
+    right: 1.75rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
+    gap: 0.4rem;
+    padding: 0.4rem 0.875rem;
     background: linear-gradient(135deg, #22c55e, #3b82f6);
     border-radius: 50px;
-    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
+    box-shadow: 0 4px 10px rgba(34, 197, 94, 0.4);
     animation: badgePulse 3s ease-in-out infinite;
 }
 
 .certificate-verified i {
-    font-size: 1rem;
+    font-size: 0.8125rem;
     color: #ffffff;
 }
 
 .certificate-verified span {
     color: #ffffff;
     font-weight: 600;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     letter-spacing: 0.3px;
 }
 
