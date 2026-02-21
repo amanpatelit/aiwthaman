@@ -1053,6 +1053,10 @@ section {
     color: #e01e5a;
 }
 
+.social-badge .fa-envelope {
+    color: #22c55e;
+}
+
 .contact-email {
     display: flex;
     align-items: center;
