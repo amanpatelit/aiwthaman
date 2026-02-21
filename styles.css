@@ -777,7 +777,7 @@ section {
     color: #ffffff;
     font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
 }
 
 .contact-content {
@@ -788,7 +788,7 @@ section {
 .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .contact-item {
