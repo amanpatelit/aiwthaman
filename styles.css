@@ -966,67 +966,67 @@ section {
 }
 
 .contact {
-    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
     position: relative;
     padding: 5rem 0;
 }
 
 .contact .section-title {
     color: #0f172a;
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 3rem;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
     text-align: center;
-    letter-spacing: -1px;
+    letter-spacing: -1.5px;
 }
 
 .contact-content {
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
 .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .contact-item {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1rem 2rem;
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-    border-radius: 12px;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding: 1.75rem 2.5rem;
+    background: #ffffff;
+    border-radius: 16px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(59, 130, 246, 0.1);
+    border: 2px solid #f1f5f9;
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .contact-item:hover {
-    transform: translateY(-6px) scale(1.02);
-    border-color: rgba(59, 130, 246, 0.4);
-    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2), 0 6px 16px rgba(34, 197, 94, 0.15);
-    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    transform: translateX(8px);
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+    background: #f8fafc;
 }
 
 .contact-item i {
-    font-size: 1.35rem;
+    font-size: 1.75rem;
     flex-shrink: 0;
     transition: all 0.3s;
 }
 
 .contact-item:hover i {
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
 .contact-item a {
-    color: #475569;
+    color: #64748b;
     text-decoration: none;
     transition: color 0.3s;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 500;
 }
 
@@ -1035,22 +1035,13 @@ section {
 }
 
 footer {
-    background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+    background: #ffffff;
     text-align: center;
     padding: 3rem 0;
-    color: #475569;
-    border-top: 1px solid rgba(15, 23, 42, 0.1);
+    color: #64748b;
+    border-top: 3px solid transparent;
+    border-image: linear-gradient(90deg, #3b82f6, #22c55e, #3b82f6) 1;
     position: relative;
-}
-
-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #22c55e, #3b82f6, transparent);
 }
 
 footer p {
@@ -1931,23 +1922,27 @@ footer p {
 
 /* Contact Icons Brand Colors */
 .contact-item .fa-linkedin {
-    color: #0A66C2 !important;
+    color: #0A66C2;
 }
 
 .contact-item .fa-github {
-    color: #ffffff !important;
+    color: #24292e;
 }
 
 .contact-item .fa-youtube {
-    color: #FF0000 !important;
+    color: #FF0000;
 }
 
 .contact-item .fa-envelope {
-    color: #3b82f6;
+    color: #22c55e;
 }
 
 .contact-item .fa-calendar-check {
     color: #3b82f6;
+}
+
+.contact-item .fa-slack {
+    color: #e01e5a;
 }
 
 /* Disable text selection */
