@@ -795,10 +795,10 @@ section {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 1.5rem;
-    padding: 2rem 3rem;
+    gap: 1.25rem;
+    padding: 1.25rem 2rem;
     background: rgba(20, 28, 40, 0.8);
-    border-radius: 16px;
+    border-radius: 12px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid rgba(59, 130, 246, 0.1);
     backdrop-filter: blur(20px);
@@ -806,27 +806,27 @@ section {
 }
 
 .contact-item:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     border-color: rgba(34, 197, 94, 0.4);
-    box-shadow: 0 12px 40px rgba(34, 197, 94, 0.25);
+    box-shadow: 0 10px 30px rgba(34, 197, 94, 0.25);
     background: rgba(25, 35, 50, 0.9);
 }
 
 .contact-item i {
-    font-size: 2rem;
+    font-size: 1.5rem;
     flex-shrink: 0;
     transition: all 0.4s;
 }
 
 .contact-item:hover i {
-    transform: scale(1.2);
+    transform: scale(1.15);
 }
 
 .contact-item a {
     color: #e2e8f0;
     text-decoration: none;
     transition: color 0.3s;
-    font-size: 1.25rem;
+    font-size: 1.0625rem;
     font-weight: 500;
 }
 
