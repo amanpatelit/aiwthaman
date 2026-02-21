@@ -145,8 +145,8 @@ body {
     z-index: 1000;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(59, 130, 246, 0.15);
-    box-shadow: 0 4px 24px rgba(59, 130, 246, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
 .navbar .container {
@@ -180,7 +180,7 @@ body {
 .logo-text {
     font-size: 1.4rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #3b82f6 0%, #22c55e 100%);
+    background: linear-gradient(135deg, #000000 0%, #333333 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -258,13 +258,13 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(90deg, #000000, #333333);
     transition: width 0.3s;
 }
 
 .nav-links a:hover {
-    color: var(--secondary-color);
-    text-shadow: 0 0 10px var(--glow-color);
+    color: #000000;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .nav-links a:hover::after {
@@ -574,11 +574,11 @@ section {
     border-radius: 20px;
     text-align: center;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 2px solid rgba(59, 130, 246, 0.08);
+    border: 2px solid rgba(0, 0, 0, 0.06);
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(12px);
-    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 .skill-card::before {
@@ -588,7 +588,7 @@ section {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.08), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.03), transparent);
     transition: left 0.5s;
 }
 
@@ -598,9 +598,9 @@ section {
 
 .skill-card:hover {
     transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 20px 60px rgba(59, 130, 246, 0.25), 0 10px 30px rgba(34, 197, 94, 0.15);
-    border-color: rgba(59, 130, 246, 0.5);
-    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12), 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
 }
 
 .skill-card i {
@@ -651,12 +651,12 @@ section {
 
 .blog-card-home {
     background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
-    border: 2px solid rgba(59, 130, 246, 0.08);
+    border: 2px solid rgba(0, 0, 0, 0.06);
     border-radius: 20px;
     padding: 2.5rem;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(12px);
-    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1), 0 4px 12px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.03);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -670,7 +670,7 @@ section {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #3b82f6, #22c55e, #3b82f6);
+    background: linear-gradient(90deg, #000000, #333333, #000000);
     transform: scaleX(0);
     transition: transform 0.4s;
 }
@@ -681,9 +681,9 @@ section {
 
 .blog-card-home:hover {
     transform: translateY(-10px) scale(1.02);
-    border-color: rgba(59, 130, 246, 0.5);
-    box-shadow: 0 20px 60px rgba(59, 130, 246, 0.25), 0 10px 30px rgba(34, 197, 94, 0.2);
-    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12), 0 10px 30px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
 }
 
 .blog-card-header {
@@ -768,21 +768,22 @@ section {
     align-items: center;
     gap: 0.625rem;
     padding: 0.875rem 1.75rem;
-    background: linear-gradient(135deg, #22c55e, #3b82f6);
+    background: linear-gradient(135deg, #000000, #333333);
     color: #ffffff;
     text-decoration: none;
     border-radius: 8px;
     font-weight: 600;
     font-size: 0.9375rem;
     transition: all 0.3s;
-    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     margin-top: auto;
 }
 
 .blog-read-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(34, 197, 94, 0.4);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     gap: 0.875rem;
+    background: linear-gradient(135deg, #333333, #000000);
 }
 
 .blog-read-btn i {
@@ -988,7 +989,7 @@ section {
     gap: 0.875rem;
     padding: 1.25rem 1.75rem;
     background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
-    border: 2px solid #e2e8f0;
+    border: 2px solid rgba(0, 0, 0, 0.1);
     border-radius: 50px;
     text-decoration: none;
     color: #64748b;
@@ -1008,7 +1009,7 @@ section {
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(59, 130, 246, 0.1);
+    background: rgba(0, 0, 0, 0.03);
     transform: translate(-50%, -50%);
     transition: width 0.4s, height 0.4s;
 }
@@ -1020,9 +1021,9 @@ section {
 
 .social-badge:hover {
     transform: translateY(-6px) scale(1.05);
-    border-color: rgba(59, 130, 246, 0.4);
-    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.15), 0 6px 16px rgba(0, 0, 0, 0.08);
-    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    border-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1), 0 6px 16px rgba(0, 0, 0, 0.06);
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
 }
 
 .social-badge i {
@@ -1042,29 +1043,14 @@ section {
     color: #0f172a;
 }
 
-/* Social Badge Icon Colors */
-.social-badge .fa-youtube {
-    color: #FF0000;
-}
-
-.social-badge .fa-linkedin {
-    color: #0A66C2;
-}
-
-.social-badge .fa-github {
-    color: #24292e;
-}
-
-.social-badge .fa-calendar-check {
-    color: #3b82f6;
-}
-
-.social-badge .fa-slack {
-    color: #e01e5a;
-}
-
+/* Social Badge Icon Colors - Black & White Theme */
+.social-badge .fa-youtube,
+.social-badge .fa-linkedin,
+.social-badge .fa-github,
+.social-badge .fa-calendar-check,
+.social-badge .fa-slack,
 .social-badge .fa-envelope {
-    color: #22c55e;
+    color: #000000;
 }
 
 .contact-email {
@@ -1341,11 +1327,11 @@ footer p {
     padding: 2.25rem 3.5rem;
     background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
     border-radius: 20px;
-    border: 2px solid rgba(59, 130, 246, 0.1);
+    border: 2px solid rgba(0, 0, 0, 0.08);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     min-width: 180px;
     backdrop-filter: blur(16px);
-    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.12), 0 4px 12px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
     position: relative;
     overflow: hidden;
 }
@@ -1357,7 +1343,7 @@ footer p {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #3b82f6, #22c55e);
+    background: linear-gradient(90deg, #000000, #333333);
     transform: scaleX(0);
     transition: transform 0.4s;
 }
@@ -1368,9 +1354,9 @@ footer p {
 
 .stat-item:hover {
     transform: translateY(-10px) scale(1.08);
-    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
-    border-color: rgba(59, 130, 246, 0.5);
-    box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3), 0 10px 30px rgba(34, 197, 94, 0.2);
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    border-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .stat-number {
